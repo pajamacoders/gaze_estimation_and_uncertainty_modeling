@@ -342,8 +342,8 @@ class World(Pose):
 
 
 class Gaze(Pose):
-    def __init__(self, calib_file:str, input_size:list, pickle_path:str='pickles/camera_jacobian.dat',
-     dzdx_path:str='pickles/world_dZdX.dat', dzdw_path:str='pickles/world_dZdW.dat'):
+    def __init__(self, calib_file:str, input_size:list, pickle_path:str='app/pickles/camera_jacobian.dat',
+     dzdx_path:str='app/pickles/world_dZdX.dat', dzdw_path:str='app/pickles/world_dZdW.dat'):
         """
         args:
         calib_file: path to camera calibration information file
