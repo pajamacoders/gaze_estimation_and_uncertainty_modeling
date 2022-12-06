@@ -38,8 +38,9 @@ def get_gaze_heat_map(id:str, gaze:np.ndarray, gaze_cov:np.ndarray, factor:int=1
     height = screen_info["screen_height"]
     btm_x = screen_info["screen_right_bottom_x"]
     btm_z = screen_info["screen_right_bottom_z"]
-    z,x = np.mgrid[0:width,0:height]
-    pos = np.dstack((x, z))    
+    x,z = np.mgrid[0:width,0:height]
+    pos = np.dstack((x, z))  
+    
     # print('DiD:(685,1715),(0,500)')
     # print('gaze:',gaze)
     gaze[0]-=btm_x
@@ -48,6 +49,7 @@ def get_gaze_heat_map(id:str, gaze:np.ndarray, gaze_cov:np.ndarray, factor:int=1
     rv = multivariate_normal(gaze, gaze_cov)
     p = rv.pdf(pos)
     npixs=(p>eps).sum()
+    print(f'{id}:{pos.shape}, npixs:{npixs}')  
     pp=None
     if npixs>100:
         pp = p.copy()

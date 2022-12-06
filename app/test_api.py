@@ -41,8 +41,8 @@ def test_read_main():
             heat_map = get_gaze_heat_map(id, gaze_info['gaze'], gaze_info['gaze_cov'])
             if heat_map is not None:
                 face_id = gaze_info['face_id']
-                cv2.imshow(f'{id}_{face_id}', heat_map)
-                cv2.waitKey(0)
+                # cv2.imshow(f'{id}_{face_id}', heat_map)
+                # cv2.waitKey(0)
 
             
 
